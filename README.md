@@ -16,19 +16,17 @@
 ```mermaid
 flowchart TD
     subgraph 数据层["数据层（Data Layer）"]
-        A1[多源数据采集<br/>FRED / akshare / Sina / 官方公告]
+        A1[多源数据采集<br/>数据管道层]
         A2[数据清洗与结构化]
         A3[快照 / CSV / 日历]
         A1 --> A2 --> A3
     end
 
     subgraph Agent层["Agent层（Multi-Agent Layer）"]
-        B1[搜索 Agent 1]
-        B2[搜索 Agent 2]
-        B3[搜索 Agent 3]
-        B4[事实核查 Agent]
-        B5[简报 Agent]
-        B6[分析 Agent]
+        B1[搜索 Agent 集群<br/>多实例并行]
+        B2[事实核查 Agent]
+        B3[简报 Agent]
+        B4[分析 Agent]
     end
 
     subgraph 校验层["校验层（Validation Layer）"]
